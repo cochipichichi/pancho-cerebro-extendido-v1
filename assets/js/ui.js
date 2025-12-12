@@ -115,7 +115,7 @@ export function initShell(activePath){
 
   // PWA
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("/service-worker.js").catch(()=>{});
+    navigator.serviceWorker.register(new URL((location.pathname.includes("/pages/") ? "../service-worker.js" : "service-worker.js"), location.href)).catch(()=>{});
   }
 }
 
